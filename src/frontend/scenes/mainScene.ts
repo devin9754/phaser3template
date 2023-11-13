@@ -1,7 +1,7 @@
 
 import io from 'socket.io-client'
 import Square from '../objects/square'
-//import Ball from '../objects/ball'
+import Ball from '../objects/ball'
 
 interface UserData {
   socketId: string,
@@ -29,6 +29,20 @@ export default class MainScene extends Phaser.Scene {
     constructor() {
     super('MainScene')
   }
+  
+  {
+     secondHi = false  
+    playersConnectedText: Phaser.GameObjects.Text
+      player: Circle
+      socket: SocketIOClient.Socket
+      opponents: Circle[] = []
+  
+    playerLabel: Phaser.GameObjects.Text
+  
+  
+      constructor() {
+      super('MainScene')
+    }
 
   init(data: any) { }
   preload() {
