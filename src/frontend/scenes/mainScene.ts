@@ -1,7 +1,7 @@
 
 import io from 'socket.io-client'
 import Square from '../objects/square'
-import Ball from '../objects/ball'
+//import Ball from '../objects/ball'
 
 interface UserData {
   socketId: string,
@@ -13,7 +13,7 @@ interface UserData {
   angle: number,
   color: string
 }
-//add another player component to the game
+
 
 export default class MainScene extends Phaser.Scene {
  
