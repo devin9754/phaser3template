@@ -1,7 +1,7 @@
 
 import io from 'socket.io-client'
 import Square from '../objects/square'
-//import Ball from '../objects/ball'
+import Ball from '../objects/ball'
 
 interface UserData {
   socketId: string,
@@ -13,7 +13,7 @@ interface UserData {
   angle: number,
   color: string
 }
-
+//add another player component to the game
 
 export default class MainScene extends Phaser.Scene {
  
@@ -22,6 +22,25 @@ export default class MainScene extends Phaser.Scene {
     player: Square
     socket: SocketIOClient.Socket
     opponents: Square[] = []
+
+    create() {
+      // create the ball object
+      this.ball = new Ball(this, 400, 300, 10, 0xffffff)
+  
+      // add the ball object to the scene
+      this.add.existing(this.ball)
+    }
+  
+    update() {
+      // update the ball object
+      this.ball.update()
+  
+      // update the player object
+      this.player.update()
+  
+      // update the opponents objects
+      this.opponents.forEach(opponent => opponent.update())
+    }
 
   playerLabel: Phaser.GameObjects.Text
 
